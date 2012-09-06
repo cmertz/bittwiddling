@@ -2,6 +2,12 @@ public final class BitTwiddling {
 
 	private BitTwiddling() {}
 
+	/**
+	 * population count
+	 * 
+	 * naive solution, iterate over the integer and
+	 * incrememt count if least significant bit is set.
+	 */
 	private static int iterated(final long v) {
 
 		assert (v > 0);
