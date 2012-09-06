@@ -7,6 +7,8 @@ public final class BitTwiddling {
 	 * 
 	 * naive solution, iterate over the integer and
 	 * incrememt count if least significant bit is set.
+	 * 
+	 * O(n) where n is the size of the integer in bit.
 	 */
 	private static int iterated(final long v) {
 
@@ -133,11 +135,27 @@ public final class BitTwiddling {
 		return (int) value;
 	}
 
+	/**
+	 * reverse an integer in place
+	 * 
+	 * switch halves of the integer, then repeat the same
+	 * in each half until we finish by switching one bit
+	 * wide parts.
+	 * 
+	 * Example:
+	 * 
+	 * 0: 0a0b       0c0d
+	 * 1: 0c  0d  0a   0b
+	 * 2: 0 d 0 c 0 b 0 a
+	 * 3: d 0 c 0 b 0 a 0
+	 * 
+	 * O(log n), where n is the number of bits in the integer.
+	 */
 	private static long reverse(final long v) {
 
 		long value = v;
 
-		value = (value >> 32) + (value << 32);
+		value = (value >>> 32) + (value << 32);
 
 		value = ((value & 0xffff0000ffff0000L) >>> 16) + ((value & 0x0000ffff0000ffffL) << 16);
 
