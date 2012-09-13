@@ -169,14 +169,4 @@ public final class BitTwiddling {
 
 		return value;
 	}
-
-	public static void main(String... args) {
-		System.out.printf("%64s\n", Long.toBinaryString(0x3333333333333333L));
-
-		System.out.printf("%64s\n", Long.toBinaryString(0xccccccccccccccccL));
-
-		System.out.printf("%64s\n", Long.toBinaryString(0x5555555555555555L));
-
-		System.out.printf("%64s\n", Long.toBinaryString(0xaaaaaaaaaaaaaaaaL));
-	}
 }
